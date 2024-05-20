@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DicewarePassphraseGenerator")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6347c6b5b4a97cc33ce7f0df7ad3734ddb1a3e70")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4f6ea47e98710e8697a24a454a24c46f67f9e67d")]
 [assembly: System.Reflection.AssemblyProductAttribute("DicewarePassphraseGenerator")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DicewarePassphraseGenerator")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

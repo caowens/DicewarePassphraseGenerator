@@ -19,11 +19,38 @@ string? readResult;
 bool validEntry = false;
 int passphraseLength = 0;
 
+// Get passphrase length from user
 do
 {
-    Console.WriteLine("Enter the length of the passphrase you want (Recommended to choose a length of 5 or higher for a strong password):");
+    Console.WriteLine("Decide how many words you want in your passphrase. A five word passphrase provides a level of security much higher than the simple passwords most people use. Diceware recommends a minimum of six words for use with GPG, wireless security and file encryption programs. A seven, eight or nine word passphrase is recommended for high value uses such as whole disk encryption, BitCoin, and the like. For more information, see the Diceware FAQ: https://theworld.com/%7Ereinhold/dicewarefaq.html#howlong \n");
+    Console.WriteLine("Enter the length of the passphrase you want:");
     readResult = Console.ReadLine();
     validEntry = int.TryParse(readResult, out passphraseLength);
 } while (validEntry == false);
 
 Console.WriteLine($"You have chosen to generate a passphrase with {passphraseLength} words.");
+
+// Generate passcodes
+
+int[,] passphraseCodes = new int[passphraseLength, 5];
+Random dice = new Random();
+
+for (int i = 0; i < passphraseLength; i++)
+{
+    for (int j = 0; j < 5; j++)
+    {
+        int roll = dice.Next(1, 7);
+        passphraseCodes[i,j] = roll;
+    }
+}
+
+Console.WriteLine("\nHere are the codes:\n");
+// Print passphrases codes
+for (int i = 0; i < passphraseLength; i++)
+{
+    for (int j = 0; j < 5; j++)
+    {
+        Console.Write(passphraseCodes[i,j]);
+    }
+    Console.WriteLine();
+}
