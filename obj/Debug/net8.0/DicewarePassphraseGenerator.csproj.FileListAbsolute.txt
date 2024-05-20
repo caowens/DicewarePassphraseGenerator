@@ -1,0 +1,15 @@
+/Users/alexowens/Code/CSharpProjects/DicewarePassphraseGenerator/bin/Debug/net8.0/DicewarePassphraseGenerator
+/Users/alexowens/Code/CSharpProjects/DicewarePassphraseGenerator/bin/Debug/net8.0/DicewarePassphraseGenerator.deps.json
+/Users/alexowens/Code/CSharpProjects/DicewarePassphraseGenerator/bin/Debug/net8.0/DicewarePassphraseGenerator.runtimeconfig.json
+/Users/alexowens/Code/CSharpProjects/DicewarePassphraseGenerator/bin/Debug/net8.0/DicewarePassphraseGenerator.dll
+/Users/alexowens/Code/CSharpProjects/DicewarePassphraseGenerator/bin/Debug/net8.0/DicewarePassphraseGenerator.pdb
+/Users/alexowens/Code/CSharpProjects/DicewarePassphraseGenerator/obj/Debug/net8.0/DicewarePassphraseGenerator.GeneratedMSBuildEditorConfig.editorconfig
+/Users/alexowens/Code/CSharpProjects/DicewarePassphraseGenerator/obj/Debug/net8.0/DicewarePassphraseGenerator.AssemblyInfoInputs.cache
+/Users/alexowens/Code/CSharpProjects/DicewarePassphraseGenerator/obj/Debug/net8.0/DicewarePassphraseGenerator.AssemblyInfo.cs
+/Users/alexowens/Code/CSharpProjects/DicewarePassphraseGenerator/obj/Debug/net8.0/DicewarePassphraseGenerator.csproj.CoreCompileInputs.cache
+/Users/alexowens/Code/CSharpProjects/DicewarePassphraseGenerator/obj/Debug/net8.0/DicewarePassphraseGenerator.sourcelink.json
+/Users/alexowens/Code/CSharpProjects/DicewarePassphraseGenerator/obj/Debug/net8.0/DicewarePassphraseGenerator.dll
+/Users/alexowens/Code/CSharpProjects/DicewarePassphraseGenerator/obj/Debug/net8.0/refint/DicewarePassphraseGenerator.dll
+/Users/alexowens/Code/CSharpProjects/DicewarePassphraseGenerator/obj/Debug/net8.0/DicewarePassphraseGenerator.pdb
+/Users/alexowens/Code/CSharpProjects/DicewarePassphraseGenerator/obj/Debug/net8.0/DicewarePassphraseGenerator.genruntimeconfig.cache
+/Users/alexowens/Code/CSharpProjects/DicewarePassphraseGenerator/obj/Debug/net8.0/ref/DicewarePassphraseGenerator.dll
