@@ -49,13 +49,34 @@ for (int i = 0; i < wordsAmount; i++)
 validEntry = false;
 do
 {
-    Console.WriteLine("\nWould you like your passphrase to include a special character? (Y/N): ");
+    Console.WriteLine("\nWould you like your passphrase to include any special characters? (Y/N): ");
     readResult = Console.ReadLine();
     if (readResult != null)
     {
         if (readResult.ToLower() == "y")
         {
-            InsertSpecialCharacter(passWords);
+            string? readSpecialCharResult;
+            bool validNumber = false;
+            int specialCharsAmount;
+
+            // Handle int input and give user option to pick number of special characters to add
+            do
+            {
+                Console.WriteLine("How many special characters do you want to add?");
+                readSpecialCharResult = Console.ReadLine();
+                if (readSpecialCharResult != null)
+                {
+                    validNumber = int.TryParse(readSpecialCharResult, out specialCharsAmount);
+                    if (validNumber)
+                    {
+                        for (int i = 0; i < specialCharsAmount; i++)
+                        {
+                            InsertSpecialCharacter(passWords);
+                        }
+                    }
+                }
+            }  while (validNumber == false);
+
             validEntry = true;
         }
         else if (readResult.ToLower() == "n")
