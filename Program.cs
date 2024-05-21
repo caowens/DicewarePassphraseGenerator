@@ -16,8 +16,8 @@ Console.WriteLine("------------------------------------");
 Console.WriteLine();
 
 string? readResult;
-bool validEntry = false;
-int passphraseLength = 0;
+bool validEntry;
+int wordsAmount;
 
 // Get passphrase length from user
 do
@@ -25,32 +25,45 @@ do
     Console.WriteLine("Decide how many words you want in your passphrase. A five word passphrase provides a level of security much higher than the simple passwords most people use. Diceware recommends a minimum of six words for use with GPG, wireless security and file encryption programs. A seven, eight or nine word passphrase is recommended for high value uses such as whole disk encryption, BitCoin, and the like. For more information, see the Diceware FAQ: https://theworld.com/%7Ereinhold/dicewarefaq.html#howlong \n");
     Console.WriteLine("Enter the length of the passphrase you want:");
     readResult = Console.ReadLine();
-    validEntry = int.TryParse(readResult, out passphraseLength);
+    validEntry = int.TryParse(readResult, out wordsAmount);
 } while (validEntry == false);
 
-Console.WriteLine($"You have chosen to generate a passphrase with {passphraseLength} words.");
+Console.WriteLine($"You have chosen to generate a passphrase with {wordsAmount} words.\n");
 
 // Generate passcodes
-
-int[,] passphraseCodes = new int[passphraseLength, 5];
+string[] passWords = new string[wordsAmount];
 Random dice = new Random();
-
-for (int i = 0; i < passphraseLength; i++)
+for (int i = 0; i < wordsAmount; i++)
 {
+    string code = "";
     for (int j = 0; j < 5; j++)
     {
         int roll = dice.Next(1, 7);
-        passphraseCodes[i,j] = roll;
+        code += roll.ToString();
     }
+    passWords[i] = GetWord(code);
+    Console.WriteLine($"{code} => {passWords[i]}");
 }
 
-Console.WriteLine("\nHere are the codes:\n");
-// Print passphrases codes
-for (int i = 0; i < passphraseLength; i++)
+string passPhrase = string.Join("", passWords);
+Console.WriteLine($"\nYour passphrase is: {passPhrase}");
+
+static string GetWord(string passphraseCode)
 {
-    for (int j = 0; j < 5; j++)
+    // Get corresponding word from the word list
+    StreamReader reader = File.OpenText("dicewareWordList.txt");
+    string line;
+    while ((line = reader.ReadLine()) != null)
     {
-        Console.Write(passphraseCodes[i,j]);
+        string[] items = line.Split('\t');
+        string code = items[0];
+        string word = items[1];
+
+        if (code == passphraseCode)
+        {
+            return word;
+        }
     }
-    Console.WriteLine();
+
+    return "";
 }
