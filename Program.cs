@@ -45,6 +45,30 @@ for (int i = 0; i < wordsAmount; i++)
     Console.WriteLine($"{code} => {passWords[i]}");
 }
 
+// Give user option to insert a special character
+validEntry = false;
+do
+{
+    Console.WriteLine("\nWould you like your passphrase to include a special character? (Y/N): ");
+    readResult = Console.ReadLine();
+    if (readResult != null)
+    {
+        if (readResult.ToLower() == "y")
+        {
+            InsertSpecialCharacter(passWords);
+            validEntry = true;
+        }
+        else if (readResult.ToLower() == "n")
+        {
+            validEntry = true;
+        }
+        else
+        {
+            Console.WriteLine("That is not a valid input. Please enter y or n.");
+        }
+    }
+} while (validEntry == false);
+
 string passPhrase = string.Join("", passWords);
 Console.WriteLine($"\nYour passphrase is: {passPhrase}");
 
@@ -52,7 +76,7 @@ static string GetWord(string passphraseCode)
 {
     // Get corresponding word from the word list
     StreamReader reader = File.OpenText("dicewareWordList.txt");
-    string line;
+    string? line;
     while ((line = reader.ReadLine()) != null)
     {
         string[] items = line.Split('\t');
@@ -66,4 +90,30 @@ static string GetWord(string passphraseCode)
     }
 
     return "";
+}
+
+// Insert a random special character in a random place in a random word in the passphrase
+void InsertSpecialCharacter(string[] passWords)
+{
+    char[,] specialCharacters = {{'~', '!', '#', '$', '%', '^'},
+                                {'&', '*', '(', ')', '-', '='},
+                                {'+', '[', ']', '\\', '{', '}'},
+                                {':', ';', '"', '\'', '<', '>'},
+                                {'?', '/', '0', '1', '2', '3'},
+                                {'4', '5', '6', '7', '8', '9'}};
+
+    // Get random special character
+    int specRow = dice.Next(0, 6);
+    int specCol = dice.Next(0, 6);
+    char specialChar = specialCharacters[specRow, specCol];
+
+    Console.WriteLine($"Special character => {specialChar}");
+    
+    // Insert special character in random place in passphrase
+    int wordIndex = dice.Next(1, passWords.Length);
+    string word = passWords[wordIndex];
+    int insertionIndex = dice.Next(1, word.Length);
+    string newWord = word.Substring(0, insertionIndex) + specialChar + word.Substring(insertionIndex);
+
+    passWords[wordIndex] = newWord;
 }
